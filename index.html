@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Vincent Lagrana | Purple Haze Gallery – Friends & Special</title>
+  <title>Vincent Lagrana | Pink Haze Gallery – Friends & Special</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
@@ -16,16 +16,17 @@
     body {
       font-family: 'Inter', sans-serif;
       background: #0a0a1a;
-      color: #eef2ff;
+      color: #fce7f3;
       line-height: 1.5;
     }
 
     :root {
-      --purple-vibrant: #8b5cf6;
-      --purple-glow: #a855f7;
-      --purple-mist: #c084fc;
-      --purple-deep: #4c1d95;
-      --pink-glow: #e879f9;
+      --pink-vibrant: #ec4899;
+      --pink-glow: #f472b6;
+      --pink-mist: #fbcfe8;
+      --pink-deep: #be185d;
+      --rose-light: #fda4af;
+      --coral-love: #fb7185;
     }
 
     .container {
@@ -34,14 +35,14 @@
       padding: 0 2rem;
     }
 
-    /* Navbar */
+    /* Navbar - pink themed */
     .navbar {
       position: sticky;
       top: 0;
       z-index: 100;
       backdrop-filter: blur(16px);
-      background: rgba(5, 5, 17, 0.85);
-      border-bottom: 1px solid rgba(139, 92, 246, 0.3);
+      background: rgba(10, 5, 15, 0.85);
+      border-bottom: 1px solid rgba(236, 72, 153, 0.4);
       padding: 1rem 0;
     }
 
@@ -55,7 +56,7 @@
     .logo a {
       font-size: 1.8rem;
       font-weight: 800;
-      background: linear-gradient(135deg, #c084fc, #8b5cf6);
+      background: linear-gradient(135deg, #fbcfe8, #ec4899);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -71,18 +72,18 @@
     .nav-links a {
       text-decoration: none;
       font-weight: 600;
-      color: #e0d4ff;
+      color: #fce7f3;
       transition: 0.25s ease;
     }
 
     .nav-links a:hover {
-      color: var(--purple-glow);
+      color: var(--pink-glow);
     }
 
-    /* Hero Section */
+    /* Hero Section - pink radial */
     .hero {
       padding: 4rem 0 5rem 0;
-      background: radial-gradient(circle at 80% 20%, rgba(76, 29, 149, 0.25), transparent);
+      background: radial-gradient(circle at 80% 20%, rgba(190, 24, 93, 0.25), transparent);
       min-height: 100vh;
       display: flex;
       align-items: center;
@@ -107,7 +108,7 @@
     }
 
     .hero-badge {
-      color: var(--purple-mist);
+      color: var(--pink-mist);
       font-weight: 500;
       margin-bottom: 1rem;
     }
@@ -116,7 +117,7 @@
       font-size: 3.5rem;
       font-weight: 800;
       line-height: 1.2;
-      background: linear-gradient(to right, #ffffff, #c084fc);
+      background: linear-gradient(to right, #ffffff, #f472b6);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -125,7 +126,7 @@
 
     .hero p {
       font-size: 1.1rem;
-      color: #cdc9e6;
+      color: #ffe0f0;
       margin-bottom: 1.5rem;
     }
 
@@ -151,30 +152,30 @@
     }
 
     .btn-primary {
-      background: linear-gradient(95deg, #8b5cf6, #a855f7);
+      background: linear-gradient(95deg, #ec4899, #f472b6);
       color: white;
-      box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4);
+      box-shadow: 0 8px 20px rgba(236, 72, 153, 0.4);
     }
 
     .btn-primary:hover {
       transform: translateY(-3px);
-      box-shadow: 0 15px 30px rgba(139, 92, 246, 0.6);
+      box-shadow: 0 15px 30px rgba(236, 72, 153, 0.6);
     }
 
     .profile-pic {
       width: 100%;
       max-width: 320px;
       border-radius: 40px;
-      background: linear-gradient(135deg, #2a1e42, #1a0f2e);
+      background: linear-gradient(135deg, #3a1a2e, #2a0f20);
       padding: 8px;
-      border: 2px solid rgba(139, 92, 246, 0.5);
+      border: 2px solid rgba(236, 72, 153, 0.6);
       box-shadow: 0 25px 40px -15px rgba(0, 0, 0, 0.5);
       transition: transform 0.3s ease;
     }
 
     .profile-pic:hover {
       transform: scale(1.02);
-      border-color: #a855f7;
+      border-color: #f472b6;
     }
 
     .profile-pic img {
@@ -184,7 +185,7 @@
       display: block;
     }
 
-    /* GALLERY MODAL (Photos with categories) */
+    /* GALLERY MODAL - pink dream */
     .gallery-modal {
       display: none;
       position: fixed;
@@ -192,7 +193,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(5, 5, 20, 0.96);
+      background: rgba(10, 5, 18, 0.96);
       backdrop-filter: blur(12px);
       z-index: 1000;
       justify-content: flex-start;
@@ -217,27 +218,27 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background: rgba(10, 10, 26, 0.8);
+      background: rgba(20, 8, 22, 0.85);
       backdrop-filter: blur(20px);
       padding: 1rem 2rem;
       border-radius: 60px;
       margin-bottom: 2rem;
       z-index: 1010;
-      border: 1px solid rgba(139, 92, 246, 0.4);
+      border: 1px solid rgba(236, 72, 153, 0.5);
     }
 
     .modal-title {
       font-size: 1.4rem;
       font-weight: 700;
-      background: linear-gradient(135deg, #fff, #c084fc);
+      background: linear-gradient(135deg, #fff, #f472b6);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
     }
 
     .close-modal {
-      background: rgba(139, 92, 246, 0.3);
-      border: 1px solid var(--purple-vibrant);
+      background: rgba(236, 72, 153, 0.3);
+      border: 1px solid var(--pink-vibrant);
       color: white;
       font-size: 1.4rem;
       cursor: pointer;
@@ -251,11 +252,11 @@
     }
 
     .close-modal:hover {
-      background: var(--purple-glow);
+      background: var(--pink-glow);
       transform: scale(1.05);
     }
 
-    /* category tabs */
+    /* category tabs - pink */
     .category-tabs {
       display: flex;
       gap: 1.5rem;
@@ -265,12 +266,12 @@
     }
 
     .cat-btn {
-      background: rgba(20, 10, 40, 0.7);
-      border: 1px solid var(--purple-vibrant);
+      background: rgba(30, 12, 28, 0.8);
+      border: 1px solid var(--pink-vibrant);
       padding: 0.7rem 2rem;
       border-radius: 40px;
       font-weight: 700;
-      color: #e0d4ff;
+      color: #fce7f3;
       cursor: pointer;
       transition: 0.2s;
       font-size: 1rem;
@@ -282,15 +283,15 @@
     }
 
     .cat-btn.active {
-      background: linear-gradient(135deg, #8b5cf6, #a855f7);
+      background: linear-gradient(135deg, #ec4899, #f472b6);
       color: white;
       border-color: transparent;
-      box-shadow: 0 4px 14px rgba(139, 92, 246, 0.5);
+      box-shadow: 0 4px 14px rgba(236, 72, 153, 0.6);
     }
 
     .cat-btn:hover:not(.active) {
-      background: rgba(139, 92, 246, 0.3);
-      border-color: var(--purple-glow);
+      background: rgba(236, 72, 153, 0.3);
+      border-color: var(--pink-glow);
     }
 
     .gallery-grid {
@@ -305,10 +306,10 @@
     }
 
     .gallery-item {
-      background: rgba(15, 10, 30, 0.8);
+      background: rgba(30, 12, 28, 0.85);
       border-radius: 24px;
       overflow: hidden;
-      border: 1px solid rgba(168, 85, 247, 0.4);
+      border: 1px solid rgba(236, 72, 153, 0.5);
       transition: transform 0.3s ease, box-shadow 0.3s;
       cursor: pointer;
       backdrop-filter: blur(4px);
@@ -316,8 +317,8 @@
 
     .gallery-item:hover {
       transform: translateY(-6px);
-      border-color: var(--purple-glow);
-      box-shadow: 0 20px 30px -10px rgba(139, 92, 246, 0.4);
+      border-color: var(--pink-glow);
+      box-shadow: 0 20px 30px -10px rgba(236, 72, 153, 0.5);
     }
 
     .gallery-item img {
@@ -333,11 +334,11 @@
       text-align: center;
       font-size: 0.85rem;
       font-weight: 600;
-      color: var(--purple-mist);
+      color: #fbcfe8;
       background: rgba(0, 0, 0, 0.6);
     }
 
-    /* Full preview overlay */
+    /* Full preview overlay - pink glow */
     .image-preview-overlay {
       position: fixed;
       top: 0;
@@ -358,13 +359,13 @@
       max-width: 85vw;
       max-height: 80vh;
       border-radius: 28px;
-      border: 3px solid var(--purple-glow);
-      box-shadow: 0 0 40px rgba(168, 85, 247, 0.5);
+      border: 3px solid var(--pink-glow);
+      box-shadow: 0 0 40px rgba(236, 72, 153, 0.6);
       object-fit: contain;
     }
 
     .close-preview {
-      background: var(--purple-vibrant);
+      background: var(--pink-vibrant);
       border: none;
       color: white;
       font-size: 1.2rem;
@@ -377,7 +378,7 @@
     }
 
     .close-preview:hover {
-      background: #a855f7;
+      background: #f472b6;
       transform: scale(1.05);
     }
 
@@ -425,7 +426,7 @@
 <nav class="navbar">
   <div class="container nav-flex">
     <div class="logo">
-      <a href="#">VINCENT<span style="color:#a855f7;"> LAGRANA</span></a>
+      <a href="#">VINCENT<span style="color:#f472b6;"> LAGRANA</span></a>
     </div>
     <ul class="nav-links">
       <li><a href="#">BSIT 3 F1</a></li>
@@ -437,9 +438,9 @@
   <section class="hero">
     <div class="container hero-grid">
       <div class="hero-content">
-        <div class="hero-badge"></i> MY WEBSITE BA!</div>
-        <h1>I am <span style="color:#c084fc;">VINCENT</span><br>with purple attitude.</h1>
-        <p>THIS IS MY REQUIREMENTS SA WEB APP HIHI. Purple Vibe.</p>
+        <div class="hero-badge"><i class="fas fa-heart" style="color:#f472b6;"></i> MY WEBSITE BA!</div>
+        <h1>I am <span style="color:#f472b6;">VINCENT</span><br>with pink attitude.</h1>
+        <p>THIS IS MY REQUIREMENTS SA WEB APP HIHI. Pink Vibe — soft, sweet, and full of personality.</p>
         <div class="btn-group">
           <!-- PHOTOS BUTTON with categories: Friends & "Sya" -->
           <button class="btn btn-primary" id="openGalleryBtn">
@@ -448,7 +449,7 @@
         </div>
       </div>
 
-      <!-- RIGHT SIDE: PROFILE PICTURE - UPDATED WITH GOOGLE DRIVE LINK -->
+      <!-- RIGHT SIDE: PROFILE PICTURE - GOOGLE DRIVE -->
       <div class="hero-image">
         <div class="profile-pic">
           <img src="https://drive.google.com/thumbnail?id=12Kl8e3iRei8v9ZcTK3Vy1eyCUa06mWUD&sz=w1000" alt="Vincent Lagrana Profile Picture">
@@ -458,10 +459,10 @@
   </section>
 </main>
 
-<!-- GALLERY MODAL (with FRIENDS & SYA categories) -->
+<!-- GALLERY MODAL (with FRIENDS & SYA categories) - PINK THEME -->
 <div id="galleryModal" class="gallery-modal">
   <div class="modal-header">
-    <div class="modal-title"><i class="fas fa-camera-retro"></i> 📸 VINCENT'S MOMENTS</div>
+    <div class="modal-title"><i class="fas fa-camera-retro"></i> 📸 VINCENT'S PINK MOMENTS</div>
     <div class="close-modal" id="closeModalBtn"><i class="fas fa-times"></i></div>
   </div>
   
@@ -484,42 +485,42 @@
 
 <script>
   // ============================================
-  // PHOTO COLLECTION - USING YOUR GOOGLE DRIVE IMAGES
+  // PHOTO COLLECTION - USING GOOGLE DRIVE IMAGES
+  // Now with pink-themed captions
   // ============================================
   
   const photosData = [
-    // PROFILE PICTURE / PERSONAL PHOTO
     // FRIENDS category (4 na larawan)
     {
       url: "https://drive.google.com/thumbnail?id=128CL8X66yo4HIplehPXKQXexvE9oEMV_&sz=w1000",
-      title: "Friendship Moment 1",
+      title: "Friendship glow 🩷",
       category: "friends"
     },
     {
       url: "https://drive.google.com/thumbnail?id=131qKe3oJNhnOx4IcAOW_lNG0_ksAWkmu&sz=w1000",
-      title: "Friendship Moment 2",
+      title: "Squad forever",
       category: "friends"
     },
     {
       url: "https://drive.google.com/thumbnail?id=1H1TEAfijX4PQU3-a3hD_XklleJ0Ax1Ba&sz=w1000",
-      title: "Friendship Moment 3",
+      title: "Pink memories",
       category: "friends"
     },
     {
       url: "https://drive.google.com/thumbnail?id=1Nifclc2s3AtAF7F_OJszwDs5P27TJiV5&sz=w1000",
-      title: "Friendship Moment 4",
+      title: "Besties always",
       category: "friends"
     },
     
     // SYA category (special someone - 2 na larawan)
     {
       url: "https://drive.google.com/thumbnail?id=1biYNrkj0vySNIgHbRBug82s53iTFg_Pw&sz=w1000",
-      title: "Special Memory 1",
+      title: "You & me 🩷",
       category: "sya"
     },
     {
       url: "https://drive.google.com/thumbnail?id=13h8Jjk9L2TKNZD21ow3qZNTjZ3fLe8Ct&sz=w1000",
-      title: "Special Memory 2",
+      title: "Sweetest chapter",
       category: "sya"
     }
   ];
@@ -534,7 +535,7 @@
   const previewImg = document.getElementById('previewImg');
   const closePreviewBtn = document.getElementById('closePreviewBtn');
   
-  let currentCategory = 'friends'; // default active tab
+  let currentCategory = 'friends';
 
   // Function to render photos based on selected category
   function renderGallery(category) {
@@ -542,7 +543,7 @@
     galleryGrid.innerHTML = '';
     
     if (filtered.length === 0) {
-      galleryGrid.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:2rem; color:var(--purple-mist);"><i class="fas fa-camera-slash"></i> No photos in this category yet, but more memories coming!</div>`;
+      galleryGrid.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:2rem; color:var(--pink-mist);"><i class="fas fa-camera-slash"></i> No photos in this category yet, but more pink memories coming!</div>`;
       return;
     }
     
@@ -558,11 +559,11 @@
       
       const captionSpan = document.createElement('div');
       captionSpan.classList.add('gallery-caption');
-      // add little heart or user icon based on category
+      // Pink-themed icons based on category
       if (category === 'sya') {
         captionSpan.innerHTML = `<i class="fas fa-heart" style="color:#f472b6;"></i> ${photo.title}`;
       } else {
-        captionSpan.innerHTML = `<i class="fas fa-user-friends"></i> ${photo.title}`;
+        captionSpan.innerHTML = `<i class="fas fa-user-friends" style="color:#fbcfe8;"></i> ${photo.title}`;
       }
       
       galleryItem.appendChild(img);
@@ -581,7 +582,7 @@
   // Open full preview modal
   function openFullPreview(imgUrl, title) {
     previewImg.src = imgUrl;
-    previewImg.alt = title || "Vincent's memory";
+    previewImg.alt = title || "Vincent's pink memory";
     previewOverlay.style.display = 'flex';
     document.body.style.overflow = 'hidden';
   }
@@ -668,7 +669,7 @@
   // Initial render
   renderGallery('friends');
   
-  console.log("💜 Purple gallery ready with Vincent's personal photos from Google Drive!");
+  console.log("🩷 Pink gallery ready with Vincent's personal photos from Google Drive!");
 </script>
 </body>
 </html>
