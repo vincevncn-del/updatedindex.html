@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-  <title>Vincent Lagrana | Purple Haze Designer</title>
+  <title>Vincent Lagrana | Purple Haze Gallery – Friends & Special</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
@@ -24,6 +24,8 @@
       --purple-vibrant: #8b5cf6;
       --purple-glow: #a855f7;
       --purple-mist: #c084fc;
+      --purple-deep: #4c1d95;
+      --pink-glow: #e879f9;
     }
 
     .container {
@@ -32,6 +34,7 @@
       padding: 0 2rem;
     }
 
+    /* Navbar */
     .navbar {
       position: sticky;
       top: 0;
@@ -76,6 +79,7 @@
       color: var(--purple-glow);
     }
 
+    /* Hero Section */
     .hero {
       padding: 4rem 0 5rem 0;
       background: radial-gradient(circle at 80% 20%, rgba(76, 29, 149, 0.25), transparent);
@@ -140,6 +144,10 @@
       display: inline-flex;
       align-items: center;
       gap: 0.6rem;
+      cursor: pointer;
+      border: none;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
     }
 
     .btn-primary {
@@ -151,17 +159,6 @@
     .btn-primary:hover {
       transform: translateY(-3px);
       box-shadow: 0 15px 30px rgba(139, 92, 246, 0.6);
-    }
-
-    .btn-outline {
-      border: 1.5px solid var(--purple-vibrant);
-      color: var(--purple-mist);
-      background: transparent;
-    }
-
-    .btn-outline:hover {
-      background: rgba(139, 92, 246, 0.2);
-      color: white;
     }
 
     .profile-pic {
@@ -187,6 +184,203 @@
       display: block;
     }
 
+    /* GALLERY MODAL (Photos with categories) */
+    .gallery-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(5, 5, 20, 0.96);
+      backdrop-filter: blur(12px);
+      z-index: 1000;
+      justify-content: flex-start;
+      align-items: center;
+      flex-direction: column;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      overflow-y: auto;
+      padding: 2rem 1rem;
+    }
+
+    .gallery-modal.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .modal-header {
+      position: sticky;
+      top: 0;
+      width: 100%;
+      max-width: 1100px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(10, 10, 26, 0.8);
+      backdrop-filter: blur(20px);
+      padding: 1rem 2rem;
+      border-radius: 60px;
+      margin-bottom: 2rem;
+      z-index: 1010;
+      border: 1px solid rgba(139, 92, 246, 0.4);
+    }
+
+    .modal-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #fff, #c084fc);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+
+    .close-modal {
+      background: rgba(139, 92, 246, 0.3);
+      border: 1px solid var(--purple-vibrant);
+      color: white;
+      font-size: 1.4rem;
+      cursor: pointer;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s;
+    }
+
+    .close-modal:hover {
+      background: var(--purple-glow);
+      transform: scale(1.05);
+    }
+
+    /* category tabs */
+    .category-tabs {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .cat-btn {
+      background: rgba(20, 10, 40, 0.7);
+      border: 1px solid var(--purple-vibrant);
+      padding: 0.7rem 2rem;
+      border-radius: 40px;
+      font-weight: 700;
+      color: #e0d4ff;
+      cursor: pointer;
+      transition: 0.2s;
+      font-size: 1rem;
+      backdrop-filter: blur(4px);
+    }
+
+    .cat-btn i {
+      margin-right: 0.6rem;
+    }
+
+    .cat-btn.active {
+      background: linear-gradient(135deg, #8b5cf6, #a855f7);
+      color: white;
+      border-color: transparent;
+      box-shadow: 0 4px 14px rgba(139, 92, 246, 0.5);
+    }
+
+    .cat-btn:hover:not(.active) {
+      background: rgba(139, 92, 246, 0.3);
+      border-color: var(--purple-glow);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 280px));
+      gap: 1.8rem;
+      justify-content: center;
+      width: 100%;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 1rem 0.5rem 2rem;
+    }
+
+    .gallery-item {
+      background: rgba(15, 10, 30, 0.8);
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(168, 85, 247, 0.4);
+      transition: transform 0.3s ease, box-shadow 0.3s;
+      cursor: pointer;
+      backdrop-filter: blur(4px);
+    }
+
+    .gallery-item:hover {
+      transform: translateY(-6px);
+      border-color: var(--purple-glow);
+      box-shadow: 0 20px 30px -10px rgba(139, 92, 246, 0.4);
+    }
+
+    .gallery-item img {
+      width: 100%;
+      aspect-ratio: 1 / 1;
+      object-fit: cover;
+      display: block;
+      transition: 0.2s;
+    }
+
+    .gallery-caption {
+      padding: 0.8rem;
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: var(--purple-mist);
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    /* Full preview overlay */
+    .image-preview-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.94);
+      backdrop-filter: blur(20px);
+      z-index: 1100;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .preview-img {
+      max-width: 85vw;
+      max-height: 80vh;
+      border-radius: 28px;
+      border: 3px solid var(--purple-glow);
+      box-shadow: 0 0 40px rgba(168, 85, 247, 0.5);
+      object-fit: contain;
+    }
+
+    .close-preview {
+      background: var(--purple-vibrant);
+      border: none;
+      color: white;
+      font-size: 1.2rem;
+      cursor: pointer;
+      padding: 0.6rem 1.5rem;
+      border-radius: 60px;
+      margin-top: 1rem;
+      font-weight: bold;
+      transition: 0.2s;
+    }
+
+    .close-preview:hover {
+      background: #a855f7;
+      transform: scale(1.05);
+    }
+
     @media (max-width: 800px) {
       .nav-flex {
         flex-direction: column;
@@ -209,6 +403,20 @@
         max-width: 260px;
         margin: 0 auto;
       }
+      .gallery-grid {
+        grid-template-columns: repeat(auto-fit, minmax(160px, 200px));
+        gap: 1rem;
+      }
+      .modal-header {
+        padding: 0.8rem 1.2rem;
+      }
+      .modal-title {
+        font-size: 1rem;
+      }
+      .cat-btn {
+        padding: 0.4rem 1.2rem;
+        font-size: 0.8rem;
+      }
     }
   </style>
 </head>
@@ -229,29 +437,238 @@
   <section class="hero">
     <div class="container hero-grid">
       <div class="hero-content">
-        <div class="hero-badge"><i class="fas fa-crown"></i> MY WEBSITE BA!</div>
+        <div class="hero-badge"></i> MY WEBSITE BA!</div>
         <h1>I am <span style="color:#c084fc;">VINCENT</span><br>with purple attitude.</h1>
-        <p>THIS IS MY REQUIREMENTS SA WEB APP HIHI. Purple vibe, modern design, and full of personality.</p>
-        
+        <p>THIS IS MY REQUIREMENTS SA WEB APP HIHI. Purple Vibe.</p>
+        <div class="btn-group">
+          <!-- PHOTOS BUTTON with categories: Friends & "Sya" -->
+          <button class="btn btn-primary" id="openGalleryBtn">
+            <i class="fas fa-images"></i> PHOTOS
+          </button>
+        </div>
       </div>
 
-      <!-- RIGHT SIDE: PROFILE PICTURE - GUMA GANA NA! -->
+      <!-- RIGHT SIDE: PROFILE PICTURE - UPDATED WITH GOOGLE DRIVE LINK -->
       <div class="hero-image">
         <div class="profile-pic">
-          <img src="https://i.imgur.com/G4D74I7.jpg" alt="Vincent Lagrana Profile Picture">
+          <img src="https://drive.google.com/thumbnail?id=12Kl8e3iRei8v9ZcTK3Vy1eyCUa06mWUD&sz=w1000" alt="Vincent Lagrana Profile Picture">
         </div>
       </div>
     </div>
   </section>
 </main>
 
+<!-- GALLERY MODAL (with FRIENDS & SYA categories) -->
+<div id="galleryModal" class="gallery-modal">
+  <div class="modal-header">
+    <div class="modal-title"><i class="fas fa-camera-retro"></i> 📸 VINCENT'S MOMENTS</div>
+    <div class="close-modal" id="closeModalBtn"><i class="fas fa-times"></i></div>
+  </div>
+  
+  <!-- Category Tabs: Friends | Sya (special person) -->
+  <div class="category-tabs">
+    <button class="cat-btn active" data-cat="friends"><i class="fas fa-users"></i> FRIENDS</button>
+    <button class="cat-btn" data-cat="sya"><i class="fas fa-heart"></i> SYA</button>
+  </div>
+  
+  <div id="galleryGrid" class="gallery-grid">
+    <!-- Dynamic content based on category -->
+  </div>
+</div>
+
+<!-- Full size preview overlay -->
+<div id="previewOverlay" class="image-preview-overlay">
+  <img id="previewImg" class="preview-img" alt="Full size preview">
+  <button id="closePreviewBtn" class="close-preview"><i class="fas fa-times-circle"></i> Close</button>
+</div>
+
 <script>
-  document.querySelectorAll('.btn').forEach(btn => {
-    btn.addEventListener('click', function(e) {
-      e.preventDefault();
-      alert("Welcome to my purple world! 🟣");
+  // ============================================
+  // PHOTO COLLECTION - USING YOUR GOOGLE DRIVE IMAGES
+  // ============================================
+  
+  const photosData = [
+    // PROFILE PICTURE / PERSONAL PHOTO
+    // FRIENDS category (4 na larawan)
+    {
+      url: "https://drive.google.com/thumbnail?id=128CL8X66yo4HIplehPXKQXexvE9oEMV_&sz=w1000",
+      title: "Friendship Moment 1",
+      category: "friends"
+    },
+    {
+      url: "https://drive.google.com/thumbnail?id=131qKe3oJNhnOx4IcAOW_lNG0_ksAWkmu&sz=w1000",
+      title: "Friendship Moment 2",
+      category: "friends"
+    },
+    {
+      url: "https://drive.google.com/thumbnail?id=1H1TEAfijX4PQU3-a3hD_XklleJ0Ax1Ba&sz=w1000",
+      title: "Friendship Moment 3",
+      category: "friends"
+    },
+    {
+      url: "https://drive.google.com/thumbnail?id=1Nifclc2s3AtAF7F_OJszwDs5P27TJiV5&sz=w1000",
+      title: "Friendship Moment 4",
+      category: "friends"
+    },
+    
+    // SYA category (special someone - 2 na larawan)
+    {
+      url: "https://drive.google.com/thumbnail?id=1biYNrkj0vySNIgHbRBug82s53iTFg_Pw&sz=w1000",
+      title: "Special Memory 1",
+      category: "sya"
+    },
+    {
+      url: "https://drive.google.com/thumbnail?id=13h8Jjk9L2TKNZD21ow3qZNTjZ3fLe8Ct&sz=w1000",
+      title: "Special Memory 2",
+      category: "sya"
+    }
+  ];
+
+  // DOM elements
+  const galleryModal = document.getElementById('galleryModal');
+  const openGalleryBtn = document.getElementById('openGalleryBtn');
+  const closeModalBtn = document.getElementById('closeModalBtn');
+  const galleryGrid = document.getElementById('galleryGrid');
+  const categoryBtns = document.querySelectorAll('.cat-btn');
+  const previewOverlay = document.getElementById('previewOverlay');
+  const previewImg = document.getElementById('previewImg');
+  const closePreviewBtn = document.getElementById('closePreviewBtn');
+  
+  let currentCategory = 'friends'; // default active tab
+
+  // Function to render photos based on selected category
+  function renderGallery(category) {
+    const filtered = photosData.filter(photo => photo.category === category);
+    galleryGrid.innerHTML = '';
+    
+    if (filtered.length === 0) {
+      galleryGrid.innerHTML = `<div style="grid-column:1/-1; text-align:center; padding:2rem; color:var(--purple-mist);"><i class="fas fa-camera-slash"></i> No photos in this category yet, but more memories coming!</div>`;
+      return;
+    }
+    
+    filtered.forEach((photo, idx) => {
+      const galleryItem = document.createElement('div');
+      galleryItem.classList.add('gallery-item');
+      galleryItem.setAttribute('data-cat', category);
+      
+      const img = document.createElement('img');
+      img.src = photo.url;
+      img.alt = photo.title;
+      img.loading = 'lazy';
+      
+      const captionSpan = document.createElement('div');
+      captionSpan.classList.add('gallery-caption');
+      // add little heart or user icon based on category
+      if (category === 'sya') {
+        captionSpan.innerHTML = `<i class="fas fa-heart" style="color:#f472b6;"></i> ${photo.title}`;
+      } else {
+        captionSpan.innerHTML = `<i class="fas fa-user-friends"></i> ${photo.title}`;
+      }
+      
+      galleryItem.appendChild(img);
+      galleryItem.appendChild(captionSpan);
+      
+      // Click to open full preview
+      galleryItem.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openFullPreview(photo.url, photo.title);
+      });
+      
+      galleryGrid.appendChild(galleryItem);
+    });
+  }
+  
+  // Open full preview modal
+  function openFullPreview(imgUrl, title) {
+    previewImg.src = imgUrl;
+    previewImg.alt = title || "Vincent's memory";
+    previewOverlay.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
+  }
+  
+  function closeFullPreview() {
+    previewOverlay.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+  
+  // Open gallery modal
+  function openGallery() {
+    renderGallery(currentCategory);
+    galleryModal.classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  
+  function closeGallery() {
+    galleryModal.classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  
+  // Category switching logic
+  function setActiveCategory(category) {
+    currentCategory = category;
+    // update button active style
+    categoryBtns.forEach(btn => {
+      const btnCat = btn.getAttribute('data-cat');
+      if (btnCat === category) {
+        btn.classList.add('active');
+      } else {
+        btn.classList.remove('active');
+      }
+    });
+    renderGallery(category);
+  }
+  
+  // Event listeners
+  openGalleryBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    openGallery();
+  });
+  
+  closeModalBtn.addEventListener('click', () => {
+    closeGallery();
+  });
+  
+  // Click outside modal content to close (on backdrop)
+  galleryModal.addEventListener('click', (e) => {
+    if (e.target === galleryModal) {
+      closeGallery();
+    }
+  });
+  
+  // Category tab listeners
+  categoryBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const category = btn.getAttribute('data-cat');
+      if (category === 'friends' || category === 'sya') {
+        setActiveCategory(category);
+      }
     });
   });
+  
+  // Preview overlay close events
+  closePreviewBtn.addEventListener('click', closeFullPreview);
+  previewOverlay.addEventListener('click', (e) => {
+    if (e.target === previewOverlay) {
+      closeFullPreview();
+    }
+  });
+  
+  // ESC key closes both modal and preview
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      if (galleryModal.classList.contains('active')) {
+        closeGallery();
+      }
+      if (previewOverlay.style.display === 'flex') {
+        closeFullPreview();
+      }
+    }
+  });
+  
+  // Initial render
+  renderGallery('friends');
+  
+  console.log("💜 Purple gallery ready with Vincent's personal photos from Google Drive!");
 </script>
 </body>
 </html>
